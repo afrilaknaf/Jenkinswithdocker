@@ -1,6 +1,7 @@
 @Library("Jenkins-Git") _
 
 pipeline {
+    
     agent any
 
     stages{
@@ -8,7 +9,7 @@ pipeline {
         stage("git checkout from github"){
             steps{
                 git(
-                    url : "https://github.com/afrilaknaf/EmailNotification-sharedLibrary.git",
+                    url : "https://github.com/afrilaknaf/Kalles_ForntEnd.git",
                     branch: "main"
                 )
             }
@@ -44,7 +45,7 @@ pipeline {
             steps{
                 bat "echo Install Node module in package.json"
                 bat """
-                    npm install
+                    npm install package.json
                 """
             }
         }
