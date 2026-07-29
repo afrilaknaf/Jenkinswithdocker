@@ -42,9 +42,9 @@ pipeline {
 
         stage("Install the package in file"){
             steps{
-                bat "Install Node module in package.json"
+                bat "echo Install Node module in package.json"
                 bat """
-                    npm i package.json
+                    npm install
                 """
             }
         }
@@ -83,6 +83,45 @@ pipeline {
 
 
     post{
-            emailpost(Useremail:"afrilaknaf85@gmail.com")
+            success{
+                emailpost(
+                    Subject:"SUCCESS BUILD ${env.JOB_NAME} and ${env.BUILD_NUMBER}",
+                    Body: """
+                    <h1>SUCCESS BUILD IN JENKINS</h1>
+                    <b>JOB NAME:</b> ${env.JOB_NAME},
+                    <b>BUILD NUMBER:</b> ${env.BUILD_NUMBER}
+                    <b>BUILD URL:</b> ${env.BUILD_URL}
+                    """,
+                    Useremail:"afrilaknaf85@gmail.com"
+                )
+            }
+
+
+            failure{
+                emailpost(
+                    Subject:"FAILURE BUILD ${env.JOB_NAME} and ${env.BUILD_NUMBER}",
+                    Body: """
+                    <h1>FAILURE BUILD IN JENKINS</h1>
+                    <b>JOB NAME:</b> ${env.JOB_NAME},
+                    <b>BUILD NUMBER:</b> ${env.BUILD_NUMBER}
+                    <b>BUILD URL:</b> ${env.BUILD_URL}
+                    """,
+                    Useremail:"afrilaknaf85@gmail.com"
+                )
+            }
+
+
+            aborted{
+                emailpost(
+                    Subject:"Aborted  BUILD ${env.JOB_NAME} and ${env.BUILD_NUMBER}",
+                    Body: """
+                    <h1>Aborted BUILD IN JENKINS</h1>
+                    <b>JOB NAME:</b> ${env.JOB_NAME},
+                    <b>BUILD NUMBER:</b> ${env.BUILD_NUMBER}
+                    <b>BUILD URL:</b> ${env.BUILD_URL}
+                    """,
+                    Useremail:"afrilaknaf85@gmail.com"
+                )
+            }
         }
 }
