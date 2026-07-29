@@ -61,7 +61,7 @@ pipeline {
 
         stage("Check the folder is dist"){
             steps{
-                bat "Check the build folder in react app"
+                bat "echo Check the build folder in react app"
                 script{
                     if(fileExists("dist")){
                         bat "echo dist folder is exist in react app"
