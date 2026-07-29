@@ -93,7 +93,8 @@ pipeline {
                     <b>BUILD NUMBER:</b> ${env.BUILD_NUMBER}
                     <b>BUILD URL:</b> ${env.BUILD_URL}
                     """,
-                    Useremail:"afrilaknaf85@gmail.com"
+                    Useremail:"afrilaknaf85@gmail.com",
+                    Attachments: "dist/**"
                 )
             }
 
@@ -107,7 +108,8 @@ pipeline {
                     <b>BUILD NUMBER:</b> ${env.BUILD_NUMBER}
                     <b>BUILD URL:</b> ${env.BUILD_URL}
                     """,
-                    Useremail:"afrilaknaf85@gmail.com"
+                    Useremail:"afrilaknaf85@gmail.com",
+                    
                 )
             }
 
@@ -121,7 +123,8 @@ pipeline {
                     <b>BUILD NUMBER:</b> ${env.BUILD_NUMBER}
                     <b>BUILD URL:</b> ${env.BUILD_URL}
                     """,
-                    Useremail:"afrilaknaf85@gmail.com"
+                    Useremail:"afrilaknaf85@gmail.com",
+                    
                 )
             }
         }
