@@ -77,9 +77,12 @@ pipeline {
             }
         }
 
-        post{
-            emailpost(Useremail:"afrilaknaf85@gmail.com")
-        }
+        
 
     }
+
+
+    post{
+            emailpost(Useremail:"afrilaknaf85@gmail.com")
+        }
 }
