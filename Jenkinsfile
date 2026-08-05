@@ -2,7 +2,7 @@ pipeline {
     agent any{
 
         environment{
-            Image_Name="afrilaknaf036/ecommerce",
+            Image_Name="afrilaknaf036/ecommerce"
             Version=${BUILD_NUMBER}
         }
 
