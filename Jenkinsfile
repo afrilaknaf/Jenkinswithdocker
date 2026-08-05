@@ -3,7 +3,7 @@ pipeline {
 
         environment{
             Image_Name="afrilaknaf036/ecommerce"
-            Version=env.BUILD_NUMBER
+            Version="${env.BUILD_NUMBER}"
         }
 
 
