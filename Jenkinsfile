@@ -1,5 +1,5 @@
 pipeline {
-    agent any{
+    agent any
 
         environment{
             Image_Name="afrilaknaf036/ecommerce"
@@ -54,7 +54,7 @@ pipeline {
 
 
 
-        }
+        
 
 
     }
