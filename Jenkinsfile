@@ -28,7 +28,7 @@ pipeline {
 
             stage("Docker Build"){
                 steps{
-                    sh "docker build -t ${env.Image_Name}:${Version}"
+                    sh "docker build -t ${env.Image_Name}:${Version} ."
                 }
             }
 
