@@ -92,7 +92,7 @@ pipeline {
                 <b>BUILD NUMBER:</b> ${env.BUILD_NUMBER}<br>
                 <b>BUILD_URLL</b> ${env.BUILD_URL}
                 """,
-                mimetype:"text/html",
+                mimeType:"text/html",
                 to:"afrilaknaf85@gmail.com"
             )
         }
