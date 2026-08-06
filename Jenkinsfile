@@ -28,7 +28,7 @@ pipeline {
 
             stage("Docker Build"){
                 steps{
-                    sh "docker build -t ${env.Image_Name}:${Version} ."
+                    sh "docker build -t ${env.Image_Name}:${env.Version} ."
                 }
             }
 
@@ -57,9 +57,44 @@ pipeline {
             }
 
 
+            stage("Docker new tag"){
+                steps{
+                    sh "docker push ${env.Image_Name}:${env.Version}"
+                }
+            }
+    }
 
-        
 
 
+
+    post{
+        success{
+            emailtext(
+                subject: "Success Build the Project ${env.JOB_NAME} and ${env.BUILD_NUMBER}",
+                body: """
+                <h1>Successfully Build</h1> 
+                <b>JOB NAME:</b> ${env.JOB_NAME}<br>
+                <b>BUILD NUMBER:</b> ${env.BUILD_NUMBER}<br>
+                <b>BUILD_URLL</b> ${env.BUILD_URL}
+                """,
+                mimetype:"text/html",
+                to:"afrilaknaf85@gmail.com"
+            )
+        }
+
+
+        failure{
+            emailtext(
+                subject: "Failure Build the Project ${env.JOB_NAME} and ${env.BUILD_NUMBER}",
+                body: """
+                <h1>Failure Build</h1> 
+                <b>JOB NAME:</b> ${env.JOB_NAME}<br>
+                <b>BUILD NUMBER:</b> ${env.BUILD_NUMBER}<br>
+                <b>BUILD_URLL</b> ${env.BUILD_URL}
+                """,
+                mimetype:"text/html",
+                to:"afrilaknaf85@gmail.com"
+            )
+        }
     }
 }
