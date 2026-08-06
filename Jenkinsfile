@@ -63,6 +63,12 @@ pipeline {
                 }
             }
 
+            stage("Build command"){
+                steps{
+                    sh "npm run build"
+                }
+            }
+
             stage("Artifacts"){
                 steps{
                     archiveArtifacts artifacts: "dist/**" , fingerprint:true
