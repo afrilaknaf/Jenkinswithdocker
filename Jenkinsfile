@@ -64,7 +64,9 @@ pipeline {
             }
 
             stage("Artifacts"){
-                archiveArtifacts artifacts: "dist/**" , fingerprint:true
+                steps{
+                    archiveArtifacts artifacts: "dist/**" , fingerprint:true
+                }
             }
 
     }
