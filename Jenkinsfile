@@ -69,7 +69,7 @@ pipeline {
 
     post{
         success{
-            emailtext(
+            emailext(
                 subject: "Success Build the Project ${env.JOB_NAME} and ${env.BUILD_NUMBER}",
                 body: """
                 <h1>Successfully Build</h1> 
@@ -84,7 +84,7 @@ pipeline {
 
 
         failure{
-            emailtext(
+            emailext(
                 subject: "Failure Build the Project ${env.JOB_NAME} and ${env.BUILD_NUMBER}",
                 body: """
                 <h1>Failure Build</h1> 
