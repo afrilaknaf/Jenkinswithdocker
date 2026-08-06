@@ -62,6 +62,11 @@ pipeline {
                     sh "docker push ${env.Image_Name}:${env.Version}"
                 }
             }
+
+            stage("Artifacts"){
+                archiveArtifacts artifacts: "dist/**" , fingerprint:true
+            }
+
     }
 
 
@@ -78,7 +83,8 @@ pipeline {
                 <b>BUILD_URLL</b> ${env.BUILD_URL}
                 """,
                 mimeType:"text/html",
-                to:"afrilaknaf85@gmail.com"
+                to:"afrilaknaf85@gmail.com",
+                attachLog:true
             )
         }
 
@@ -93,7 +99,8 @@ pipeline {
                 <b>BUILD_URLL</b> ${env.BUILD_URL}
                 """,
                 mimeType:"text/html",
-                to:"afrilaknaf85@gmail.com"
+                to:"afrilaknaf85@gmail.com",
+                attachLog:true
             )
         }
     }
